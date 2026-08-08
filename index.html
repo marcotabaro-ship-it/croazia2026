@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Camperizziamoci le ferie! — Croazia 2026</title>
+<meta name="description" content="App di bordo della vacanza in camper in Croazia, 10–18 agosto 2026.">
+<meta name="theme-color" content="#F5A623">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Croazia 2026">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23F5A623'/%3E%3Ccircle cx='90' cy='72' r='26' fill='%23FFF8EE'/%3E%3Cpath d='M40 132l30-38 22 26 14-16 34 28z' fill='%23FFF8EE'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F5A623'/%3E%3Ccircle cx='16' cy='13' r='5' fill='%23FFF8EE'/%3E%3Cpath d='M6 24l6-7 4 5 3-3 7 5z' fill='%23FFF8EE'/%3E%3C/svg%3E">
+<style>
+:root{
+  --sole:#F5A623;
+  --sole-scuro:#D8860B;
+  --sole-chiaro:#FFD98A;
+  --panna:#FFF8EE;
+  --panna-2:#FDF0DC;
+  --carta:#FFFFFF;
+  --notte:#16263D;
+  --grigio:#6B7B8F;
+  --verde:#2E9E6B;
+  --verde-chiaro:#E4F4EC;
+  --corallo:#E1503C;
+  --corallo-chiaro:#FCE9E6;
+  --ambra-chiara:#FFF2D9;
+  --bordo:#EFE2CE;
+  --ombra:0 4px 16px rgba(22,38,61,.07);
+  --ombra-alta:0 10px 28px rgba(22,38,61,.12);
+  --r:20px;
+  --r-s:14px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:var(--panna);
+  color:var(--notte);
+  font-size:16px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:calc(78px + env(safe-area-inset-bottom));
+}
+button{font-family:inherit;font-size:inherit;cursor:pointer;border:0;background:none;color:inherit}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sole-scuro);outline-offset:2px;border-radius:6px}
+
+/* ---------- INTESTAZIONE ---------- */
+.intestazione{
+  background:linear-gradient(160deg,#F9B942 0%,var(--sole) 55%,#EE9612 100%);
+  color:#fff;
+  padding:calc(22px + env(safe-area-inset-top)) 20px 26px;
+  border-radius:0 0 28px 28px;
+  box-shadow:var(--ombra-alta);
+  position:relative;
+  overflow:hidden;
+}
+.intestazione::after{
+  content:"";position:absolute;right:-46px;top:-52px;
+  width:170px;height:170px;border-radius:50%;
+  background:rgba(255,255,255,.16);
+}
+.intestazione .marchio{
+  font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  opacity:.9;margin:0 0 8px;position:relative;
+}
+.intestazione h1{font-size:24px;line-height:1.25;margin:0;font-weight:800;position:relative;letter-spacing:-.01em}
+.intestazione .sotto{margin:8px 0 0;font-size:14px;opacity:.95;position:relative}
+
+/* ---------- CONTENITORE ---------- */
+.pagina{padding:18px 16px 8px;max-width:640px;margin:0 auto}
+.titolo-sezione{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--grigio);margin:22px 4px 10px}
+.titolo-sezione:first-child{margin-top:6px}
+
+/* ---------- BANNER PROSSIMA SCADENZA ---------- */
+.banner{
+  display:flex;gap:12px;align-items:flex-start;
+  background:var(--ambra-chiara);border:1.5px solid var(--sole-chiaro);
+  border-radius:var(--r);padding:14px 16px;margin-bottom:6px
+}
+.banner .ico{flex:0 0 auto;color:var(--sole-scuro);margin-top:1px}
+.banner .et{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--sole-scuro)}
+.banner .tx{font-size:15px;font-weight:600;margin-top:2px}
+.banner .qd{font-size:13px;color:var(--grigio);margin-top:2px}
+
+/* ---------- GRIGLIA CARD HOME ---------- */
+.griglia{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tessera{
+  background:var(--carta);border-radius:var(--r);padding:18px 14px;
+  box-shadow:var(--ombra);display:flex;flex-direction:column;align-items:center;
+  text-align:center;gap:10px;min-height:126px;justify-content:center;
+  transition:transform .16s ease,box-shadow .16s ease;
+  border:1px solid var(--bordo)
+}
+.tessera:active{transform:scale(.97);box-shadow:var(--ombra-alta)}
+.tessera .cerchio{
+  width:52px;height:52px;border-radius:50%;background:var(--ambra-chiara);
+  display:flex;align-items:center;justify-content:center;color:var(--sole-scuro)
+}
+.tessera.allerta .cerchio{background:var(--corallo-chiaro);color:var(--corallo)}
+.tessera .nome{font-weight:700;font-size:15px;line-height:1.25}
+.tessera .nota{font-size:12px;color:var(--grigio);line-height:1.3}
+
+/* ---------- SCHEDE GENERICHE ---------- */
+.scheda{
+  background:var(--carta);border-radius:var(--r);box-shadow:var(--ombra);
+  border:1px solid var(--bordo);padding:16px 16px;margin-bottom:12px
+}
+.scheda h3{margin:0 0 4px;font-size:17px;font-weight:800;letter-spacing:-.01em}
+.scheda .sub{font-size:13px;color:var(--grigio);margin:0 0 12px}
+.riga{display:flex;gap:10px;padding:7px 0;border-top:1px solid var(--panna-2);font-size:14px}
+.riga:first-of-type{border-top:0}
+.riga dt{flex:0 0 40%;color:var(--grigio);margin:0;font-size:13px}
+.riga dd{margin:0;flex:1;font-weight:600}
+dl{margin:0}
+
+/* ---------- TIMELINE ITINERARIO ---------- */
+.giorno{
+  display:flex;gap:0;background:var(--carta);border-radius:var(--r);
+  box-shadow:var(--ombra);border:1px solid var(--bordo);margin-bottom:10px;
+  overflow:hidden;width:100%;text-align:left;align-items:stretch
+}
+.giorno:active{transform:scale(.99)}
+.giorno .barra{flex:0 0 6px}
+.giorno .g{
+  flex:0 0 58px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:var(--panna-2);padding:12px 4px;gap:2px
+}
+.giorno .g .cod{font-weight:800;font-size:16px}
+.giorno .g .dt{font-size:11px;color:var(--grigio);text-align:center;line-height:1.2}
+.giorno .corpo{flex:1;padding:12px 14px;min-width:0}
+.giorno .tratta{font-weight:700;font-size:15px;line-height:1.3}
+.giorno .dove{font-size:13px;color:var(--grigio);margin-top:3px}
+.giorno .orari{margin-top:7px;display:flex;flex-wrap:wrap;gap:6px}
+.giorno.oggi{border:2px solid var(--sole);box-shadow:0 6px 20px rgba(245,166,35,.28)}
+.giorno.oggi .g{background:var(--sole);color:#fff}
+.giorno.oggi .g .dt{color:rgba(255,255,255,.9)}
+.etichetta-oggi{
+  display:inline-block;background:var(--sole);color:#fff;font-size:10px;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:99px;margin-bottom:6px
+}
+.pill{
+  display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;
+  padding:4px 10px;border-radius:99px;background:var(--panna-2);color:var(--grigio)
+}
+.pill.rossa{background:var(--corallo-chiaro);color:var(--corallo)}
+.pill.verde{background:var(--verde-chiaro);color:var(--verde)}
+.pill.ambra{background:var(--ambra-chiara);color:var(--sole-scuro)}
+
+/* ---------- DETTAGLIO GIORNO ---------- */
+.indietro{
+  display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:14px;
+  color:var(--sole-scuro);padding:8px 12px 8px 6px;margin:0 0 6px -6px
+}
+.elenco-narrativo{margin:0;padding:0;list-style:none}
+.elenco-narrativo li{
+  position:relative;padding:0 0 0 22px;margin-bottom:12px;font-size:15px;line-height:1.55
+}
+.elenco-narrativo li::before{
+  content:"";position:absolute;left:2px;top:9px;width:8px;height:8px;
+  border-radius:50%;background:var(--sole)
+}
+
+/* ---------- ALLERTE ---------- */
+.allerta-box{
+  background:var(--corallo-chiaro);border:1.5px solid #F3B7AD;border-radius:var(--r-s);
+  padding:12px 14px;margin:12px 0;font-size:14px;line-height:1.5
+}
+.allerta-box strong{color:var(--corallo)}
+.nota-box{
+  background:var(--ambra-chiara);border:1.5px solid var(--sole-chiaro);border-radius:var(--r-s);
+  padding:12px 14px;margin:12px 0;font-size:14px;line-height:1.5
+}
+.ok-box{
+  background:var(--verde-chiaro);border:1.5px solid #B4E0C9;border-radius:var(--r-s);
+  padding:12px 14px;margin:12px 0;font-size:14px;line-height:1.5
+}
+
+/* ---------- BOTTONI ---------- */
+.azioni{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.btn{
+  flex:1 1 auto;display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:12px 14px;border-radius:99px;font-weight:700;font-size:14px;
+  text-decoration:none;min-height:46px;transition:transform .14s ease
+}
+.btn:active{transform:scale(.97)}
+.btn-pieno{background:var(--sole);color:#fff;box-shadow:0 4px 12px rgba(245,166,35,.35)}
+.btn-vuoto{background:var(--panna-2);color:var(--notte);border:1.5px solid var(--bordo)}
+.btn-rosso{background:var(--corallo);color:#fff}
+
+/* ---------- CHECKLIST ---------- */
+.categoria{
+  background:var(--carta);border-radius:var(--r);box-shadow:var(--ombra);
+  border:1px solid var(--bordo);margin-bottom:12px;overflow:hidden
+}
+.cat-testa{width:100%;display:flex;align-items:center;gap:12px;padding:15px 16px;text-align:left}
+.cat-testa .nome{flex:1;font-weight:800;font-size:15px}
+.cat-testa .conta{font-size:12px;font-weight:700;color:var(--grigio);white-space:nowrap}
+.cat-testa .freccia{transition:transform .2s ease;color:var(--grigio);flex:0 0 auto}
+.categoria.aperta .cat-testa .freccia{transform:rotate(90deg)}
+.avanzamento{height:5px;background:var(--panna-2);border-radius:99px;overflow:hidden;margin:0 16px 12px}
+.avanzamento i{display:block;height:100%;background:var(--verde);border-radius:99px;transition:width .3s ease;width:0}
+.cat-corpo{display:none;padding:0 16px 8px}
+.categoria.aperta .cat-corpo{display:block}
+.voce{
+  display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;
+  padding:11px 0;border-top:1px solid var(--panna-2);font-size:14.5px;line-height:1.45
+}
+.casella{
+  flex:0 0 auto;width:23px;height:23px;border-radius:7px;border:2px solid var(--bordo);
+  background:#fff;display:flex;align-items:center;justify-content:center;margin-top:1px;
+  transition:background .15s ease,border-color .15s ease
+}
+.voce.fatta .casella{background:var(--verde);border-color:var(--verde);color:#fff}
+.voce.fatta .testo{color:var(--grigio);text-decoration:line-through}
+.voce .casella svg{opacity:0;transition:opacity .15s ease}
+.voce.fatta .casella svg{opacity:1}
+
+/* ---------- ORARI CRITICI ---------- */
+.orario{
+  display:flex;gap:14px;background:var(--carta);border-radius:var(--r);
+  border:1px solid #F3B7AD;border-left:6px solid var(--corallo);
+  box-shadow:var(--ombra);padding:14px 16px;margin-bottom:10px;align-items:flex-start
+}
+.orario .quando{flex:0 0 74px}
+.orario .quando .gg{font-size:12px;color:var(--grigio);font-weight:600}
+.orario .quando .oo{font-size:20px;font-weight:800;color:var(--corallo);line-height:1.1}
+.orario .cosa{flex:1;font-size:14.5px;font-weight:600;line-height:1.4}
+.orario .cosa small{display:block;font-weight:500;color:var(--grigio);margin-top:4px;font-size:12.5px}
+
+/* ---------- CONTATTI ---------- */
+.contatto{
+  display:flex;align-items:center;gap:13px;background:var(--carta);border-radius:var(--r-s);
+  border:1px solid var(--bordo);box-shadow:var(--ombra);padding:13px 15px;margin-bottom:9px;
+  text-decoration:none
+}
+.contatto:active{transform:scale(.99)}
+.contatto .cerchio{
+  flex:0 0 auto;width:42px;height:42px;border-radius:50%;background:var(--ambra-chiara);
+  display:flex;align-items:center;justify-content:center;color:var(--sole-scuro)
+}
+.contatto.urgenza .cerchio{background:var(--corallo-chiaro);color:var(--corallo)}
+.contatto .testi{flex:1;min-width:0}
+.contatto .n{font-weight:700;font-size:14.5px}
+.contatto .v{font-size:13px;color:var(--grigio);word-break:break-all}
+
+/* ---------- NAVIGAZIONE ---------- */
+.nav{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:rgba(255,255,255,.97);backdrop-filter:blur(10px);
+  border-top:1px solid var(--bordo);
+  display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom));
+  box-shadow:0 -3px 16px rgba(22,38,61,.07)
+}
+.nav button{
+  flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
+  padding:7px 2px;color:var(--grigio);font-size:10.5px;font-weight:700;border-radius:14px
+}
+.nav button.attivo{color:var(--sole-scuro)}
+.nav button.attivo .bolla{background:var(--ambra-chiara)}
+.nav .bolla{
+  width:44px;height:26px;border-radius:99px;display:flex;align-items:center;justify-content:center;
+  transition:background .18s ease
+}
+.pie{text-align:center;font-size:11.5px;color:var(--grigio);padding:22px 20px 10px;line-height:1.6}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media(min-width:480px){.griglia{grid-template-columns:1fr 1fr 1fr}}
+</style>
+</head>
+<body>
+
+<header class="intestazione">
+  <p class="marchio">Camperizziamoci le ferie!</p>
+  <h1 id="saluto">Croazia in camper</h1>
+  <p class="sotto" id="sotto-saluto">10 – 18 agosto 2026</p>
+</header>
+
+<main class="pagina" id="vista" tabindex="-1"></main>
+
+<nav class="nav" id="nav" aria-label="Sezioni dell'app"></nav>
+
+<script>
+/* =====================================================================
+   APP DI BORDO — CROAZIA AGOSTO 2026
+   Fonti dei dati: Rev.06 (Documento Master), Rev.07, M02,
+   FAM01 / FAM02 / FAM03 / FAM06 Rev.01A.
+   Nessun dato economico. Nessun dettaglio assicurativo.
+   ===================================================================== */
+
+/* ------------------------------------------------------------------
+   MEMORIA DELLE SPUNTE
+   L'app riconosce da sola dove si trova:
+   - in anteprima le spunte durano finché la pagina resta aperta;
+   - una volta pubblicata su un sito (GitHub Pages) le spunte
+     restano salvate sul telefono di chi la usa.
+   Non c'è nulla da modificare a mano.
+   ------------------------------------------------------------------ */
+const Memoria = (() => {
+  let volatile = {};
+  const disponibile = () => {
+    try {
+      const p = window.location && window.location.protocol;
+      const h = window.location && window.location.hostname;
+      if (p !== 'http:' && p !== 'https:') return false;
+      if (!h) return false;
+      const k = '__prova'; window.localStorage.setItem(k,'1'); window.localStorage.removeItem(k);
+      return true;
+    } catch(e) { return false; }
+  };
+  const ok = disponibile();
+  return {
+    leggi(){
+      if (!ok) return volatile;
+      try { return JSON.parse(window.localStorage.getItem('croazia2026')||'{}'); }
+      catch(e){ return {}; }
+    },
+    scrivi(dati){
+      if (!ok) { volatile = dati; return; }
+      try { window.localStorage.setItem('croazia2026', JSON.stringify(dati)); }
+      catch(e){ volatile = dati; }
+    },
+    azzera(){
+      volatile = {};
+      if (ok) { try { window.localStorage.removeItem('croazia2026'); } catch(e){} }
+    },
+    persistente(){ return ok; }
+  };
+})();
+
+/* ------------------------------------------------------------------
+   ICONE
+   ------------------------------------------------------------------ */
+const I = {
+  home:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.8V20h5v-6h4v6h5V9.8"/></svg>',
+  mappa:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3L3 5.5v15L9 18l6 3 6-2.5v-15L15 6 9 3z"/><path d="M9 3v15M15 6v15"/></svg>',
+  tenda:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2.5 20h19L12 3z"/><path d="M12 8.5L17 20M12 8.5L7 20"/></svg>',
+  spunta:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9.5 16.5 4.5 11.5"/></svg>',
+  spuntaPiccola:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9.5 16.5 4.5 11.5"/></svg>',
+  info:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="7.8" r="1.1" fill="currentColor" stroke="none"/></svg>',
+  lista:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6h.01M4 12h.01M4 18h.01"/></svg>',
+  orologio:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 2"/></svg>',
+  telefono:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16.9v2.5a2 2 0 01-2.2 2 19.6 19.6 0 01-8.5-3 19.3 19.3 0 01-6-6 19.6 19.6 0 01-3-8.6A2 2 0 013.3 1.6h2.5a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L7 9.3a16 16 0 006 6l1.1-1.1a2 2 0 012.1-.4c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg>',
+  posta:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 7l9 6 9-6"/></svg>',
+  sos:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9.5 16.5H2.5L12 3z"/><path d="M12 9.5v4"/><circle cx="12" cy="16.6" r="1" fill="currentColor" stroke="none"/></svg>',
+  albero:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l5 7h-3l4 5.5H6l4-5.5H7l5-7z"/><path d="M12 15v6.5"/></svg>',
+  freccia:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>',
+  indietro:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+  bussola:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2z"/></svg>'
+};
+
+/* ------------------------------------------------------------------
+   DATI DEL VIAGGIO
+   Fonte: Rev.06 §1–§4, Rev.07 §1–§3, M02, FAM01/FAM02/FAM03 Rev.01A
+   ------------------------------------------------------------------ */
+
+const PARTENZA = '2026-08-10';
+const RIENTRO  = '2026-08-18';
+
+const GIORNI = [
+  { cod:'G0', data:'2026-08-09', gg:'Dom', dm:'09/08',
+    tratta:'Pordenone — casa', notte:'A casa', km:null,
+    partenza:null, arrivo:null, critica:false, fatica:'rilassante',
+    dettaglio:[
+      "Prepariamo i bagagli con calma. Niente fretta: tutto deve essere pronto la sera prima.",
+      "Verifichiamo i documenti: carte d'identità, patenti, tessere sanitarie, conferme delle prenotazioni.",
+      "Sveglia puntata per le 8:00 del giorno dopo."
+    ]},
+  { cod:'G1', data:'2026-08-10', gg:'Lun', dm:'10/08',
+    tratta:'Mira (VE) → Pag / Avalona', notte:'Camping Avalona, Pag', km:'~530 km',
+    partenza:'~10:30–11:00', arrivo:'~18:00–19:30', critica:false, fatica:'impegnativo',
+    dettaglio:[
+      "Mattina: Marco parte per Mira (VE) e ritira il camper alle 10:00. Il personale mostrerà il funzionamento del veicolo.",
+      "Nel frattempo Laura, Livia e Stefano caricano le ultime cose e pranzano a casa.",
+      "Da Mira a Pag sono circa 530 km: autostrada A4, Trieste, Rijeka e poi la A1 croata fino a Zadar. Attraverseremo il Ponte di Pag — panorama bellissimo.",
+      "Arrivo al Camping Avalona: prima notte in camper!"
+    ]},
+  { cod:'G2', data:'2026-08-11', gg:'Mar', dm:'11/08',
+    tratta:'Pag — giornata di mare', notte:'Camping Avalona, Pag', km:null,
+    partenza:null, arrivo:null, critica:false, fatica:'rilassante',
+    dettaglio:[
+      "Giornata libera sul mare di Pag. Spiagge, acqua cristallina, relax.",
+      "È il giorno giusto per prendere confidenza con il camper: cucina, letti, doccia esterna.",
+      "Serata in campeggio — il parco acquatico è incluso nella piazzola."
+    ]},
+  { cod:'G3', data:'2026-08-12', gg:'Mer', dm:'12/08',
+    tratta:'Pag → Dubrovnik', notte:'Camping Solitudo, Dubrovnik', km:'~540 km',
+    partenza:'entro le 07:00', arrivo:'~17:00–19:00', critica:true, fatica:'critico',
+    avviso:'La tappa più lunga del viaggio. Si parte entro le 07:00: partire più tardi significa arrivare a notte fonda.',
+    dettaglio:[
+      "Sveglia presto! Partiamo entro le 07:00 — è la tappa più lunga del viaggio: circa 540 km fino a Dubrovnik.",
+      "Percorso: A1 croata verso sud lungo tutta la Dalmazia, poi il Ponte di Pelješac (nuovo, gratuito, spettacolare) e Dubrovnik.",
+      "Soste ogni ora e mezza. Pranzo in autostrada.",
+      "Arrivo al Camping Solitudo: quattro notti a Dubrovnik!"
+    ]},
+  { cod:'G4', data:'2026-08-13', gg:'Gio', dm:'13/08',
+    tratta:'Dubrovnik — città vecchia', notte:'Camping Solitudo, Dubrovnik', km:null,
+    partenza:null, arrivo:null, critica:false, fatica:'rilassante',
+    dettaglio:[
+      "Visita alla città vecchia di Dubrovnik. Dal campeggio c'è il bus diretto per il centro.",
+      "Le mura, la Stradun, la fortezza Lovrijenac. Bellissimo ma molto caldo in agosto: meglio partire la mattina presto.",
+      "Per Livia: cappello, borraccia e crema solare. Le mura sono senza ombra."
+    ]},
+  { cod:'G5', data:'2026-08-14', gg:'Ven', dm:'14/08',
+    tratta:'Dubrovnik — giorno libero', notte:'Camping Solitudo, Dubrovnik', km:null,
+    partenza:null, arrivo:null, critica:false, fatica:'rilassante',
+    dettaglio:[
+      "Giornata libera. Spiaggia, giro in kayak, escursione sull'isola di Lokrum con il traghetto dal porto vecchio."
+    ]},
+  { cod:'G6', data:'2026-08-15', gg:'Sab', dm:'15/08',
+    tratta:'Dubrovnik — Ferragosto', notte:'Camping Solitudo, Dubrovnik', km:null,
+    partenza:null, arrivo:null, critica:false, fatica:'normale',
+    dettaglio:[
+      "Ferragosto! Giornata di festa. Meglio restare in campeggio o nei dintorni: il traffico è intensissimo in tutta la Croazia.",
+      "Serata in campeggio, barbecue, relax.",
+      "Sera: prepariamo tutto per la partenza di domani, che è presto."
+    ]},
+  { cod:'G7', data:'2026-08-16', gg:'Dom', dm:'16/08',
+    tratta:'Dubrovnik → Plitvice', notte:'Camp Korana, Plitvice', km:'~350 km',
+    partenza:'entro le 07:30', arrivo:'~14:00–15:00', critica:true, fatica:'impegnativo',
+    avviso:'Partenza entro le 07:30. Il check-in a Camp Korana è possibile solo dalle 14:00.',
+    dettaglio:[
+      "Sveglia presto! Partiamo entro le 07:30 verso i Laghi di Plitvice — circa 350 km.",
+      "Percorso: Ponte Pelješac in senso inverso, A1 verso nord, poi strada statale fino a Plitvice.",
+      "Arriviamo al Camp Korana nel pomeriggio: è il campeggio ufficiale del Parco Nazionale. Una sola notte.",
+      "Sera in montagna: qui rinfresca. Felpa a portata di mano, anche per Livia."
+    ]},
+  { cod:'G8', data:'2026-08-17', gg:'Lun', dm:'17/08',
+    tratta:'Plitvice → Krk', notte:'Camping Ježevac, Krk', km:'~195 km',
+    partenza:'~13:00–13:30', arrivo:'~16:00–17:00', critica:true, fatica:'impegnativo',
+    avviso:'Al Parking 2 entro le 08:45 per il tour delle 09:00. Il camper deve uscire da Camp Korana entro le 08:30 e non rientra più.',
+    dettaglio:[
+      "Sveglia alle 07:00. Colazione veloce e camper caricato.",
+      "Usciamo dal Camp Korana entro le 08:30: dopo il tour non si rientra in campeggio.",
+      "Alle 08:45 siamo al Parking 2 (Ingresso 2) del Parco: lì ci aspetta la guida del tour in italiano.",
+      "Tour guidato: 3–4 ore tra le cascate e i laghi più belli d'Europa. Per Livia scarpe chiuse, è tutto passerelle di legno.",
+      "Dopo il tour: pranzo veloce e via verso Krk, circa 195 km. Ultima notte in camper sull'isola di Krk!"
+    ]},
+  { cod:'G9', data:'2026-08-18', gg:'Mar', dm:'18/08',
+    tratta:'Krk → Mira (VE) — riconsegna', notte:'Fine viaggio', km:'~240 km',
+    partenza:'entro le 11:00', arrivo:'riconsegna ≤ 16:00', critica:true, fatica:'critico',
+    avviso:'Riconsegna del camper entro le 16:00: orario tassativo, previsto dal contratto una penale in caso di ritardo.',
+    dettaglio:[
+      "Ultima mattina in camper. Pulizia interna, svuotamento serbatoi, rifornimento carburante pieno: tutto va fatto prima di partire da Krk.",
+      "Check-out dal campeggio entro le 12:00. Partenza verso Mira: 240 km.",
+      "Riconsegna del camper entro le 16:00 in Via Ghebba 109, Mira (VE). Poi tutti a casa!"
+    ]}
+];
+
+const FATICA = {
+  rilassante:{ testo:'Rilassante', colore:'#2E9E6B', classe:'verde' },
+  normale:{ testo:'Tranquillo', colore:'#F5A623', classe:'ambra' },
+  impegnativo:{ testo:'Impegnativo', colore:'#E87A2B', classe:'ambra' },
+  critico:{ testo:'Giornata critica', colore:'#E1503C', classe:'rossa' }
+};
+
+const CAMPEGGI = [
+  { nome:'Aminess Style Camping Avalona Resort', stelle:'★★★',
+    dove:'Povljana, isola di Pag',
+    indirizzo:'Put Rastavca 10, 23249 Povljana, Isola di Pag, Croazia',
+    codice:'PH28693503', giorni:'G1–G2 · 10–12 agosto', notti:'2 notti',
+    checkin:'Lunedì 10/08, dalle 12:00', checkout:'Mercoledì 12/08, entro le 12:00',
+    checkinDaConfermare:false,
+    piazzola:'Piazzola Superior — allaccio elettrico, allaccio idrico, scarico.',
+    servizi:['Parco acquatico','Piscina esterna di acqua dolce','Lettini e ombrelloni in spiaggia','Elettricità, acqua e scarico in piazzola'],
+    tel:[{et:'Reception', n:'+385 23 204 333'},{et:'Prenotazioni', n:'+385 52 858 690'}],
+    email:'camping@aminess.com',
+    nota:"Si arriva dal Ponte di Pag: gratuito, senza restrizioni per i camper. L'ultimo tratto è su strada provinciale asfaltata." },
+
+  { nome:'Camping Solitudo', stelle:'★★★ (Valamar)',
+    dove:'Dubrovnik, zona Babin Kuk',
+    indirizzo:'Vatroslava Lisinskog 60, 20000 Dubrovnik, Croazia',
+    codice:'PH28693574', giorni:'G3–G6 · 12–16 agosto', notti:'4 notti',
+    checkin:'Mercoledì 12/08 — orario da confermare', checkout:'Domenica 16/08 — orario da confermare',
+    checkinDaConfermare:true,
+    piazzola:'Piazzola Standard. Da verificare se include lo scarico.',
+    servizi:['Il campeggio più vicino alla Città Vecchia','Bus diretto per il centro','Spiaggia e servizi del complesso Babin Kuk'],
+    tel:[{et:'Campeggio', n:'+385 20 448 686'}],
+    email:'camping@valamar.com',
+    nota:"L'orario di check-in del 12 agosto non è indicato nella conferma. Laura lo sta verificando con il campeggio." },
+
+  { nome:'Camp Korana', stelle:'Parco Nazionale',
+    dove:'Rakovica, Laghi di Plitvice',
+    indirizzo:'Čatrnja 167, 47245 Rakovica, Croazia',
+    codice:'PH28693765', giorni:'G7 · 16–17 agosto', notti:'1 notte',
+    checkin:'Domenica 16/08, dalle 14:00', checkout:'Lunedì 17/08, entro le 11:00',
+    checkinDaConfermare:false,
+    piazzola:'Piazzola standard con supplemento camper. Corrente e acqua disponibili.',
+    servizi:['Campeggio ufficiale del Parco Nazionale','A pochi km dall\u2019Ingresso 2','Prenotazione a nome di tutti e quattro'],
+    tel:[{et:'Campeggio', n:'+385 53 751 888'}],
+    email:'sales2@np-plitvicka-jezera.hr',
+    nota:"Il 17 agosto il camper esce dal campeggio entro le 08:30 e si sposta al Parking 2 per il tour. Dopo il tour non si rientra in campeggio.",
+    notaRossa:true },
+
+  { nome:'Valamar Camping Ježevac', stelle:'★★★★',
+    dove:'Città di Krk, isola di Krk',
+    indirizzo:'Plavnička 37, 51500 Krk, Croazia',
+    codice:'PH28693881', giorni:'G8 · 17–18 agosto', notti:'1 notte',
+    checkin:'Lunedì 17/08, dalle 13:00', checkout:'Martedì 18/08, entro le 12:00',
+    checkinDaConfermare:false,
+    piazzola:'Piazzola Comfort di 70–90 m² con allaccio elettrico e idrico; molte piazzole hanno anche lo scarico.',
+    servizi:['Piazzole per camper da 6 a 7 metri — il nostro camper ci sta','A piedi dal centro di Krk','Spiaggia del campeggio'],
+    tel:[{et:'Campeggio', n:'+385 51 221 081'}],
+    email:'camping@valamar.com',
+    nota:"Check-out entro le 12:00 del 18 agosto: da lì sono 240 km fino a Mira per la riconsegna entro le 16:00.",
+    notaRossa:true }
+];
+
+const TOUR = {
+  titolo:'Tour guidato dei Laghi di Plitvice',
+  lingua:'Visita guidata in italiano',
+  data:'Lunedì 17 agosto 2026',
+  ora:'09:00',
+  arrivo:'08:45',
+  ritrovo:'Ingresso 2 / Parking 2 — Plitvička Jezera, 2 ulaz',
+  ritrovoIndirizzo:'Plitvicka Jezera Ulaz 2, 53231 Plitvička Jezera, Croazia',
+  comeRiconoscerli:"Davanti all'ufficio informazioni. La guida indossa un'uniforme bianca o blu con il logo Allegra Adventures.",
+  operatore:'Allegra Adventures',
+  telOperatore:'+385 998 386 474',
+  codice:'32536255',
+  piattaforma:'Headout',
+  partecipanti:'3 adulti + 1 bambina',
+  durata:'Circa 3–4 ore',
+  camper:'Il camper si parcheggia al Parking 2 (Ingresso 2) e resta lì per tutta la durata del tour. Il parcheggio è ampio anche per i veicoli grandi.'
+};
+
+const ORARI = [
+  { data:'2026-08-10T10:00', gg:'Lun 10/08', ora:'10:00', cosa:'Ritiro del camper a Mira (VE)',
+    nota:'Via Ghebba 109, 30034 Mira (VE). Briefing e verifica del veicolo con il personale.' },
+  { data:'2026-08-12T07:00', gg:'Mer 12/08', ora:'07:00', cosa:'Partenza da Pag verso Dubrovnik',
+    nota:'Circa 540 km. Partire più tardi significa arrivare a notte fonda.' },
+  { data:'2026-08-16T07:30', gg:'Dom 16/08', ora:'07:30', cosa:'Partenza da Dubrovnik verso Plitvice',
+    nota:'Circa 350 km. Il check-in a Camp Korana è possibile solo dalle 14:00.' },
+  { data:'2026-08-17T08:30', gg:'Lun 17/08', ora:'08:30', cosa:'Uscita da Camp Korana con il camper',
+    nota:'Dopo il tour non si rientra in campeggio: si esce già carichi.' },
+  { data:'2026-08-17T08:45', gg:'Lun 17/08', ora:'08:45', cosa:'Arrivo al Parking 2 — Ingresso 2 Plitvice',
+    nota:'Il tour parte alle 09:00. In caso di ritardo il biglietto non è recuperabile.' },
+  { data:'2026-08-17T11:00', gg:'Lun 17/08', ora:'11:00', cosa:'Check-out Camp Korana',
+    nota:'Il camper deve essere già fuori dal campeggio prima del tour.' },
+  { data:'2026-08-18T12:00', gg:'Mar 18/08', ora:'12:00', cosa:'Check-out Camping Ježevac (Krk)',
+    nota:'Da Krk a Mira sono 240 km. Meglio partire entro le 11:00.' },
+  { data:'2026-08-18T16:00', gg:'Mar 18/08', ora:'16:00', cosa:'Riconsegna del camper — Via Ghebba 109, Mira (VE)',
+    nota:'Orario tassativo. In caso di ritardo il contratto prevede una penale.' }
+];
+
+const CONTATTI = [
+  { gruppo:'Campeggi', voci:[
+    { n:'Aminess Avalona — reception', v:'+385 23 204 333', tipo:'tel' },
+    { n:'Aminess Avalona — prenotazioni', v:'+385 52 858 690', tipo:'tel' },
+    { n:'Camping Solitudo, Dubrovnik', v:'+385 20 448 686', tipo:'tel' },
+    { n:'Camp Korana, Plitvice', v:'+385 53 751 888', tipo:'tel' },
+    { n:'Camping Ježevac, Krk', v:'+385 51 221 081', tipo:'tel' }
+  ]},
+  { gruppo:'Tour Plitvice', voci:[
+    { n:'Allegra Adventures — guida del tour', v:'+385 998 386 474', tipo:'tel' }
+  ]},
+  { gruppo:'Camper', voci:[
+    { n:'Roadsurfer — prenotazione 3304083670', v:'rent@roadsurfer.com', tipo:'mail' }
+  ]},
+  { gruppo:'Emergenze', voci:[
+    { n:'Numero unico di emergenza', v:'112', tipo:'tel', urgenza:true,
+      nota:'Vale sia in Italia sia in Croazia. Risponde in italiano e in inglese.' }
+  ]}
+];
+
+const CHECKLIST = [
+  { nome:'Documenti essenziali', voci:[
+    "Carta d'identità o passaporto — Marco",
+    "Carta d'identità o passaporto — Laura",
+    "Carta d'identità o passaporto — Stefano",
+    "Carta d'identità o passaporto — Livia",
+    "Patente di guida — Marco (originale)",
+    "Patente di guida — Laura (originale)",
+    "Tessera sanitaria europea (TEAM) — tutti e quattro",
+    "Conferma prenotazione Roadsurfer n. 3304083670 (stampata o offline)",
+    "Conferme dei quattro campeggi: PH28693503 · PH28693574 · PH28693765 · PH28693881",
+    "Biglietti Plitvice — codice Headout 32536255 (app o PDF offline)",
+    "Indirizzo Roadsurfer salvato offline: Via Ghebba 109, 30034 Mira (VE)",
+    "Carta di credito di Marco — verificata la disponibilità",
+    "Contanti in euro per pedaggi, mercati ed emergenze"
+  ]},
+  { nome:'Navigazione e connettività', voci:[
+    "Mappe offline della Croazia scaricate",
+    "Adattatore per la presa elettrica del campeggio (CEE / Schuko)",
+    "SIM o piano dati internazionale attivo",
+    "Power bank carico — almeno uno",
+    "Cavi di ricarica (USB-C, Lightning)"
+  ]},
+  { nome:'Salute e farmaci', voci:[
+    "Kit di primo soccorso (cerotti, disinfettante, garze)",
+    "Farmaci prescritti per tutti — scorta per dieci giorni",
+    "Antidolorifico",
+    "Antidiarroico e reintegratore salino",
+    "Antistaminico",
+    "Repellente per zanzare",
+    "Protezione solare 50+ — abbondante",
+    "Crema doposole",
+    "Termometro",
+    "Antinausea, se serve"
+  ]},
+  { nome:'Kit di Livia', voci:[
+    "Seggiolino o cintura adatta a Livia, verificato con Roadsurfer",
+    "Scarpe chiuse per le passerelle di Plitvice",
+    "Sandali e scarpette da mare",
+    "Costumi — almeno due",
+    "Cappello e occhiali da sole",
+    "Crema solare 50+ dedicata",
+    "Giochi e zainetto di Livia",
+    "Il peluche preferito",
+    "Snack preferiti per il viaggio in camper"
+  ]},
+  { nome:'Abbigliamento e mare', voci:[
+    "Costumi da bagno — tutti",
+    "Teli mare",
+    "Infradito e ciabatte da spiaggia",
+    "Abiti estivi leggeri",
+    "Felpa o giacchino leggero — a Plitvice la sera rinfresca",
+    "Scarpe chiuse per Plitvice",
+    "Cappelli e occhiali da sole"
+  ]},
+  { nome:'Camper', voci:[
+    { titolo:'Da caricare il 10 agosto, dopo il ritiro' },
+    "Cibo per il primo giorno: pranzo in viaggio e cena al campeggio di Pag",
+    "Acqua in bottiglia per il viaggio",
+    "Detersivi e prodotti per la pulizia del camper",
+    "Sacchi per la spazzatura",
+    "Carta igienica di scorta",
+    "Sapone liquido e shampoo",
+    { titolo:'Al ritiro a Mira — lunedì 10 agosto, ore 10:00' },
+    "Verificare con il personale tutte le dotazioni: cunei, tanica acqua, cavo, bombola gas, tavolo, sedie, tende, Solbio, manovella della tenda da sole",
+    "Verificare la presenza del box cucina",
+    "Fotografare ogni ammaccatura o danno già esistente, prima di firmare",
+    "Firmare il verbale di consegna solo dopo aver verificato tutto",
+    "Dichiarare al personale tutti i passeggeri: Marco, Laura, Livia, Stefano",
+    "Farsi confermare l'altezza ufficiale del veicolo assegnato",
+    "Avere la carta di credito di Marco a portata di mano",
+    { titolo:'Prima della riconsegna — martedì 18 agosto, da fare a Krk' },
+    "Pulizia interna: spazzare, aspirare, lavare le superfici",
+    "Svuotare la toilette e la cassetta WC",
+    "Svuotare il serbatoio delle acque grigie",
+    "Fare il pieno di carburante",
+    "Rabboccare l'AdBlue se la spia è accesa",
+    "Portare fuori tutti gli effetti personali",
+    "Restituire tutte le dotazioni ricevute al ritiro",
+    "Arrivare in Via Ghebba 109, Mira (VE) entro le 16:00"
+  ]}
+];
+
+const OGNI_SERA = [
+  "Controllare il livello dell'acqua pulita e pianificare il rifornimento se scende sotto un terzo",
+  "Controllare il serbatoio delle acque grigie e svuotarlo se è quasi pieno",
+  "Controllare il livello del carburante: mai sotto un quarto di serbatoio",
+  "Non lasciare mai la tenda da sole aperta senza qualcuno nei paraggi",
+  "Chiudere il gas prima di rimettersi in marcia"
+];
+
+/* ------------------------------------------------------------------
+   UTILITÀ
+   ------------------------------------------------------------------ */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const telHref = n => 'tel:' + n.replace(/[^\d+]/g,'');
+const mappaHref = ind => 'https://maps.google.com/?q=' + encodeURIComponent(ind);
+
+function oggiISO(){
+  const d = new Date();
+  const p = n => String(n).padStart(2,'0');
+  return d.getFullYear() + '-' + p(d.getMonth()+1) + '-' + p(d.getDate());
+}
+function giorniMancanti(){
+  const p = n => String(n).padStart(2,'0');
+  const o = new Date(); const oggi = new Date(o.getFullYear(), o.getMonth(), o.getDate());
+  const [a,m,g] = PARTENZA.split('-').map(Number);
+  const part = new Date(a, m-1, g);
+  return Math.round((part - oggi) / 86400000);
+}
+function giornoDiOggi(){ return GIORNI.find(g => g.data === oggiISO()) || null; }
+
+/* ------------------------------------------------------------------
+   INTESTAZIONE DINAMICA
+   ------------------------------------------------------------------ */
+function aggiornaSaluto(){
+  const h1 = document.getElementById('saluto');
+  const sub = document.getElementById('sotto-saluto');
+  const mancano = giorniMancanti();
+  const g = giornoDiOggi();
+
+  if (mancano > 0) {
+    h1.textContent = mancano === 1
+      ? 'Ciao! Manca 1 giorno alla partenza'
+      : 'Ciao! Mancano ' + mancano + ' giorni alla partenza';
+    sub.textContent = 'Croazia in camper · 10 – 18 agosto 2026';
+  } else if (g) {
+    h1.textContent = 'Oggi: ' + g.cod + ' — ' + g.tratta;
+    sub.textContent = g.gg + ' ' + g.dm + ' · si dorme: ' + g.notte;
+  } else if (oggiISO() > RIENTRO) {
+    h1.textContent = 'Bentornati!';
+    sub.textContent = 'Croazia in camper · 10 – 18 agosto 2026';
+  } else {
+    h1.textContent = 'Croazia in camper';
+    sub.textContent = '10 – 18 agosto 2026';
+  }
+}
+
+/* ------------------------------------------------------------------
+   PROSSIMA SCADENZA
+   ------------------------------------------------------------------ */
+function prossimaScadenza(){
+  const ora = new Date();
+  for (const o of ORARI) {
+    const [d,t] = o.data.split('T');
+    const [a,m,g] = d.split('-').map(Number);
+    const [hh,mm] = t.split(':').map(Number);
+    if (new Date(a, m-1, g, hh, mm) > ora) return o;
+  }
+  return null;
+}
+function bannerScadenza(){
+  const p = prossimaScadenza();
+  if (!p) return '';
+  return '<div class="banner"><span class="ico">' + I.orologio + '</span><div>' +
+    '<div class="et">Prossimo appuntamento</div>' +
+    '<div class="tx">' + esc(p.cosa) + '</div>' +
+    '<div class="qd">' + esc(p.gg) + ' · ore ' + esc(p.ora) + '</div></div></div>';
+}
+
+/* ------------------------------------------------------------------
+   VISTA — HOME
+   ------------------------------------------------------------------ */
+function vistaHome(){
+  const tessere = [
+    { v:'itinerario', ico:I.mappa, nome:'Itinerario', nota:'Giorno per giorno' },
+    { v:'campeggi',   ico:I.tenda, nome:'Campeggi',  nota:'Dove dormiamo' },
+    { v:'tour',       ico:I.albero,nome:'Tour Plitvice', nota:'17 agosto, ore 09:00' },
+    { v:'checklist',  ico:I.spunta,nome:'Checklist', nota:'Cosa portare' },
+    { v:'orari',      ico:I.orologio, nome:'Orari critici', nota:'Da non mancare', allerta:true },
+    { v:'contatti',   ico:I.telefono, nome:'Numeri utili', nota:'Tutti cliccabili' }
+  ];
+  const g = giornoDiOggi();
+  let html = bannerScadenza();
+
+  if (g) {
+    html += '<div class="titolo-sezione">La giornata di oggi</div>' +
+      '<button class="giorno oggi" data-vai="giorno" data-cod="' + g.cod + '">' +
+      '<span class="g"><span class="cod">' + g.cod + '</span><span class="dt">' + g.gg + '<br>' + g.dm + '</span></span>' +
+      '<span class="corpo"><span class="tratta">' + esc(g.tratta) + '</span>' +
+      '<span class="dove">Si dorme: ' + esc(g.notte) + '</span></span></button>';
+  }
+
+  html += '<div class="titolo-sezione">Tutto il viaggio</div><div class="griglia">';
+  tessere.forEach(t => {
+    html += '<button class="tessera' + (t.allerta ? ' allerta' : '') + '" data-vai="' + t.v + '">' +
+      '<span class="cerchio">' + t.ico + '</span>' +
+      '<span class="nome">' + t.nome + '</span>' +
+      '<span class="nota">' + t.nota + '</span></button>';
+  });
+  html += '</div>';
+
+  html += '<div class="scheda" style="margin-top:18px"><h3>Il nostro camper</h3>' +
+    '<p class="sub">Roadsurfer Family Finca — VW Grand California 600</p>' +
+    '<dl><div class="riga"><dt>In viaggio</dt><dd>Marco, Laura, Livia e Stefano</dd></div>' +
+    '<div class="riga"><dt>Ritiro</dt><dd>Lun 10/08, ore 10:00 — Mira (VE)</dd></div>' +
+    '<div class="riga"><dt>Riconsegna</dt><dd>Mar 18/08, entro le 16:00 — Mira (VE)</dd></div>' +
+    '<div class="riga"><dt>Notti in camper</dt><dd>8, in 4 campeggi</dd></div></dl></div>';
+
+  return html;
+}
+
+/* ------------------------------------------------------------------
+   VISTA — ITINERARIO
+   ------------------------------------------------------------------ */
+function vistaItinerario(){
+  const oggi = oggiISO();
+  let html = '<div class="titolo-sezione">Dieci giorni, quattro campeggi</div>';
+  GIORNI.forEach(g => {
+    const f = FATICA[g.fatica];
+    const attivo = g.data === oggi;
+    html += '<button class="giorno' + (attivo ? ' oggi' : '') + '" data-vai="giorno" data-cod="' + g.cod + '">' +
+      '<span class="barra" style="background:' + f.colore + '"></span>' +
+      '<span class="g"><span class="cod">' + g.cod + '</span><span class="dt">' + g.gg + '<br>' + g.dm + '</span></span>' +
+      '<span class="corpo">' +
+      (attivo ? '<span class="etichetta-oggi">Oggi</span><br>' : '') +
+      '<span class="tratta">' + esc(g.tratta) + '</span>' +
+      '<span class="dove">' + esc(g.notte) + (g.km ? ' · ' + esc(g.km) : '') + '</span>' +
+      '<span class="orari">' +
+      (g.partenza ? '<span class="pill ' + (g.critica ? 'rossa' : '') + '">Si parte ' + esc(g.partenza) + '</span>' : '') +
+      (g.arrivo ? '<span class="pill">Arrivo ' + esc(g.arrivo) + '</span>' : '') +
+      '<span class="pill ' + f.classe + '">' + f.testo + '</span>' +
+      '</span></span></button>';
+  });
+  html += '<p class="pie">Tocca un giorno per aprire il dettaglio.</p>';
+  return html;
+}
+
+/* ------------------------------------------------------------------
+   VISTA — DETTAGLIO GIORNO
+   ------------------------------------------------------------------ */
+function vistaGiorno(cod){
+  const g = GIORNI.find(x => x.cod === cod);
+  if (!g) return vistaItinerario();
+  const f = FATICA[g.fatica];
+  let html = '<button class="indietro" data-vai="itinerario">' + I.indietro + ' Itinerario</button>';
+
+  html += '<div class="scheda"><h3>' + g.cod + ' · ' + esc(g.gg) + ' ' + esc(g.dm) + '</h3>' +
+    '<p class="sub">' + esc(g.tratta) + '</p>' +
+    '<span class="pill ' + f.classe + '">' + f.testo + '</span>' +
+    '<dl style="margin-top:12px">' +
+    '<div class="riga"><dt>Si dorme</dt><dd>' + esc(g.notte) + '</dd></div>' +
+    (g.km ? '<div class="riga"><dt>Distanza</dt><dd>' + esc(g.km) + '</dd></div>' : '') +
+    (g.partenza ? '<div class="riga"><dt>Si parte</dt><dd' + (g.critica ? ' style="color:var(--corallo)"' : '') + '>' + esc(g.partenza) + '</dd></div>' : '') +
+    (g.arrivo ? '<div class="riga"><dt>Si arriva</dt><dd>' + esc(g.arrivo) + '</dd></div>' : '') +
+    '</dl></div>';
+
+  if (g.avviso) html += '<div class="allerta-box"><strong>Attenzione all\u2019orario.</strong> ' + esc(g.avviso) + '</div>';
+
+  html += '<div class="titolo-sezione">Com\u2019è fatta la giornata</div><div class="scheda"><ul class="elenco-narrativo">';
+  g.dettaglio.forEach(d => { html += '<li>' + esc(d) + '</li>'; });
+  html += '</ul></div>';
+
+  const i = GIORNI.indexOf(g);
+  html += '<div class="azioni">';
+  if (i > 0) html += '<button class="btn btn-vuoto" data-vai="giorno" data-cod="' + GIORNI[i-1].cod + '">' + I.indietro + ' ' + GIORNI[i-1].cod + '</button>';
+  if (i < GIORNI.length-1) html += '<button class="btn btn-vuoto" data-vai="giorno" data-cod="' + GIORNI[i+1].cod + '">' + GIORNI[i+1].cod + ' ' + I.freccia + '</button>';
+  html += '</div>';
+  return html;
+}
+
+/* ------------------------------------------------------------------
+   VISTA — CAMPEGGI
+   ------------------------------------------------------------------ */
+function vistaCampeggi(){
+  let html = '<div class="titolo-sezione">Dove dormiamo</div>';
+  CAMPEGGI.forEach(c => {
+    html += '<div class="scheda">' +
+      '<span class="pill ambra">' + esc(c.giorni) + '</span>' +
+      '<h3 style="margin-top:10px">' + esc(c.nome) + '</h3>' +
+      '<p class="sub">' + esc(c.stelle) + ' · ' + esc(c.dove) + ' · ' + esc(c.notti) + '</p>' +
+      '<dl>' +
+      '<div class="riga"><dt>Check-in</dt><dd' + (c.checkinDaConfermare ? ' style="color:var(--corallo)"' : '') + '>' + esc(c.checkin) + '</dd></div>' +
+      '<div class="riga"><dt>Check-out</dt><dd>' + esc(c.checkout) + '</dd></div>' +
+      '<div class="riga"><dt>Prenotazione</dt><dd>' + esc(c.codice) + '</dd></div>' +
+      '<div class="riga"><dt>Indirizzo</dt><dd style="font-weight:500">' + esc(c.indirizzo) + '</dd></div>' +
+      '<div class="riga"><dt>Piazzola</dt><dd style="font-weight:500">' + esc(c.piazzola) + '</dd></div>' +
+      '</dl>' +
+      '<div style="margin-top:12px"><div class="titolo-sezione" style="margin:0 0 8px">Servizi</div>' +
+      '<ul class="elenco-narrativo">' + c.servizi.map(s => '<li>' + esc(s) + '</li>').join('') + '</ul></div>' +
+      (c.nota ? '<div class="' + (c.notaRossa ? 'allerta-box' : 'nota-box') + '">' + esc(c.nota) + '</div>' : '') +
+      '<div class="azioni">' +
+      '<a class="btn btn-pieno" href="' + mappaHref(c.indirizzo) + '" target="_blank" rel="noopener">' + I.bussola + ' Naviga</a>' +
+      c.tel.map(t => '<a class="btn btn-vuoto" href="' + telHref(t.n) + '">' + I.telefono + ' ' + esc(t.et) + '</a>').join('') +
+      '<a class="btn btn-vuoto" href="mailto:' + c.email + '">' + I.posta + ' Scrivi</a>' +
+      '</div></div>';
+  });
+  return html;
+}
+
+/* ------------------------------------------------------------------
+   VISTA — TOUR PLITVICE
+   ------------------------------------------------------------------ */
+function vistaTour(){
+  const t = TOUR;
+  let html = '<div class="titolo-sezione">La visita guidata</div>' +
+    '<div class="scheda"><h3>' + esc(t.titolo) + '</h3><p class="sub">' + esc(t.lingua) + '</p>' +
+    '<dl>' +
+    '<div class="riga"><dt>Quando</dt><dd>' + esc(t.data) + '</dd></div>' +
+    '<div class="riga"><dt>Inizio</dt><dd>ore ' + esc(t.ora) + '</dd></div>' +
+    '<div class="riga"><dt>Ritrovo</dt><dd style="color:var(--corallo)">entro le ' + esc(t.arrivo) + '</dd></div>' +
+    '<div class="riga"><dt>Durata</dt><dd>' + esc(t.durata) + '</dd></div>' +
+    '<div class="riga"><dt>Partecipanti</dt><dd>' + esc(t.partecipanti) + '</dd></div>' +
+    '<div class="riga"><dt>Operatore</dt><dd>' + esc(t.operatore) + '</dd></div>' +
+    '<div class="riga"><dt>Codice</dt><dd>' + esc(t.codice) + ' (' + esc(t.piattaforma) + ')</dd></div>' +
+    '</dl></div>';
+
+  html += '<div class="allerta-box"><strong>Alle 08:45 bisogna già essere sul posto.</strong> Se si arriva in ritardo il biglietto non è recuperabile.</div>';
+
+  html += '<div class="titolo-sezione">Dove ci si trova</div><div class="scheda">' +
+    '<h3 style="font-size:15px">' + esc(t.ritrovo) + '</h3>' +
+    '<p style="margin:8px 0 0;font-size:14.5px;line-height:1.55">' + esc(t.comeRiconoscerli) + '</p>' +
+    '<div class="azioni"><a class="btn btn-pieno" href="' + mappaHref(t.ritrovoIndirizzo) + '" target="_blank" rel="noopener">' + I.bussola + ' Naviga al Parking 2</a>' +
+    '<a class="btn btn-vuoto" href="' + telHref(t.telOperatore) + '">' + I.telefono + ' Chiama la guida</a></div></div>';
+
+  html += '<div class="titolo-sezione">Da ricordare</div><div class="scheda"><ul class="elenco-narrativo">' +
+    '<li>' + esc(t.camper) + '</li>' +
+    "<li>Serve un documento d'identità con foto per ciascuno: carta d'identità o passaporto.</li>" +
+    '<li>Il camper esce da Camp Korana entro le 08:30 e non rientra: si parte già carichi.</li>' +
+    '<li>Scarpe chiuse per tutti, anche per Livia: il percorso è fatto di passerelle di legno.</li>' +
+    '<li>Acqua, cappello e crema solare. In alcuni tratti non c\u2019è ombra.</li>' +
+    '</ul></div>';
+  return html;
+}
+
+/* ------------------------------------------------------------------
+   VISTA — ORARI CRITICI
+   ------------------------------------------------------------------ */
+function vistaOrari(){
+  let html = '<div class="titolo-sezione">Gli orari che non si spostano</div>' +
+    '<div class="allerta-box">Questi sono gli unici momenti rigidi del viaggio. Tutto il resto è flessibile.</div>';
+  ORARI.forEach(o => {
+    html += '<div class="orario"><div class="quando"><div class="gg">' + esc(o.gg) + '</div>' +
+      '<div class="oo">' + esc(o.ora) + '</div></div>' +
+      '<div class="cosa">' + esc(o.cosa) + '<small>' + esc(o.nota) + '</small></div></div>';
+  });
+  return html;
+}
+
+/* ------------------------------------------------------------------
+   VISTA — CONTATTI
+   ------------------------------------------------------------------ */
+function vistaContatti(){
+  let html = '';
+  CONTATTI.forEach(gr => {
+    html += '<div class="titolo-sezione">' + esc(gr.gruppo) + '</div>';
+    gr.voci.forEach(v => {
+      const href = v.tipo === 'tel' ? telHref(v.v) : 'mailto:' + v.v;
+      const ico = v.tipo === 'tel' ? (v.urgenza ? I.sos : I.telefono) : I.posta;
+      html += '<a class="contatto' + (v.urgenza ? ' urgenza' : '') + '" href="' + href + '">' +
+        '<span class="cerchio">' + ico + '</span>' +
+        '<span class="testi"><span class="n">' + esc(v.n) + '</span>' +
+        '<span class="v">' + esc(v.v) + '</span></span>' + I.freccia + '</a>';
+      if (v.nota) html += '<p class="pie" style="padding:2px 8px 12px;text-align:left">' + esc(v.nota) + '</p>';
+    });
+  });
+  return html;
+}
+
+/* ------------------------------------------------------------------
+   VISTA — CHECKLIST
+   ------------------------------------------------------------------ */
+let aperte = {};
+
+function vistaChecklist(){
+  const stato = Memoria.leggi();
+  let html = '<div class="titolo-sezione">Cosa portare</div>' +
+    '<div class="nota-box">Spunta ogni voce solo quando l\u2019oggetto è davvero nella borsa o nel camper.</div>';
+
+  CHECKLIST.forEach((cat, ci) => {
+    const voci = cat.voci.filter(v => typeof v === 'string');
+    const fatte = voci.filter((v, k) => {
+      const idx = cat.voci.indexOf(v);
+      return stato['c' + ci + '-' + idx];
+    }).length;
+    const perc = voci.length ? Math.round(fatte / voci.length * 100) : 0;
+    const apr = aperte[ci] ? ' aperta' : '';
+
+    html += '<section class="categoria' + apr + '" data-cat="' + ci + '">' +
+      '<button class="cat-testa" data-piega="' + ci + '" aria-expanded="' + (aperte[ci] ? 'true' : 'false') + '">' +
+      '<span class="nome">' + esc(cat.nome) + '</span>' +
+      '<span class="conta">' + fatte + '/' + voci.length + '</span>' +
+      '<span class="freccia">' + I.freccia + '</span></button>' +
+      '<div class="avanzamento"><i style="width:' + perc + '%"></i></div>' +
+      '<div class="cat-corpo">';
+
+    cat.voci.forEach((v, vi) => {
+      if (typeof v === 'object' && v.titolo) {
+        html += '<div class="titolo-sezione" style="margin:14px 0 2px">' + esc(v.titolo) + '</div>';
+      } else {
+        const id = 'c' + ci + '-' + vi;
+        const fatta = stato[id] ? ' fatta' : '';
+        html += '<button class="voce' + fatta + '" data-spunta="' + id + '" aria-pressed="' + (stato[id] ? 'true' : 'false') + '">' +
+          '<span class="casella">' + I.spuntaPiccola + '</span>' +
+          '<span class="testo">' + esc(v) + '</span></button>';
+      }
+    });
+    html += '</div></section>';
+  });
+
+  html += '<div class="azioni"><button class="btn btn-vuoto" id="azzera">Azzera tutto</button></div>';
+
+  html += '<div class="titolo-sezione">Ogni sera in campeggio</div>' +
+    '<div class="scheda"><p class="sub" style="margin:0 0 10px">Non serve spuntarle: sono le abitudini di ogni sera.</p>' +
+    '<ul class="elenco-narrativo">' + OGNI_SERA.map(v => '<li>' + esc(v) + '</li>').join('') + '</ul></div>';
+
+  html += '<p class="pie">' + (Memoria.persistente()
+    ? 'Le spunte restano salvate su questo telefono.'
+    : 'Le spunte restano finché questa pagina resta aperta.') + '</p>';
+  return html;
+}
+
+/* ------------------------------------------------------------------
+   VISTA — INFO
+   ------------------------------------------------------------------ */
+function vistaInfo(){
+  let html = '<div class="titolo-sezione">Scorciatoie</div><div class="griglia">' +
+    '<button class="tessera" data-vai="tour"><span class="cerchio">' + I.albero + '</span><span class="nome">Tour Plitvice</span><span class="nota">17 agosto</span></button>' +
+    '<button class="tessera allerta" data-vai="orari"><span class="cerchio">' + I.orologio + '</span><span class="nome">Orari critici</span><span class="nota">Da non mancare</span></button>' +
+    '<button class="tessera" data-vai="contatti"><span class="cerchio">' + I.telefono + '</span><span class="nome">Numeri utili</span><span class="nota">Tutti cliccabili</span></button>' +
+    '</div>';
+
+  html += '<div class="titolo-sezione">Il camper</div><div class="scheda">' +
+    '<h3>Roadsurfer Family Finca</h3><p class="sub">VW Grand California 600</p><dl>' +
+    '<div class="riga"><dt>Lunghezza</dt><dd>circa 6,36 m</dd></div>' +
+    '<div class="riga"><dt>Altezza</dt><dd style="font-weight:500">da confermare al ritiro</dd></div>' +
+    '<div class="riga"><dt>Alla guida</dt><dd>Marco e Laura</dd></div>' +
+    '<div class="riga"><dt>Prenotazione</dt><dd>3304083670</dd></div>' +
+    '<div class="riga"><dt>Ritiro e riconsegna</dt><dd style="font-weight:500">Via Ghebba 109, 30034 Mira (VE)</dd></div>' +
+    '</dl><div class="azioni"><a class="btn btn-pieno" href="' + mappaHref('Via Ghebba 109, 30034 Mira VE, Italia') + '" target="_blank" rel="noopener">' + I.bussola + ' Naviga a Mira</a></div></div>';
+
+  html += '<div class="titolo-sezione">Cose da ricordare sempre</div><div class="scheda"><ul class="elenco-narrativo">' +
+    '<li>Chiudere il gas prima di rimettersi in marcia.</li>' +
+    '<li>Non lasciare mai la tenda da sole aperta senza qualcuno nei paraggi: sulla costa la bora arriva all\u2019improvviso.</li>' +
+    '<li>Controllare ogni sera acqua, acque grigie e carburante.</li>' +
+    "<li>In autostrada in Croazia il pedaggio si paga al casello: nessun bollino da comprare prima.</li>" +
+    '<li>Il 112 funziona sia in Italia sia in Croazia.</li>' +
+    '</ul></div>';
+
+  html += '<div class="titolo-sezione">Ancora da confermare</div>' +
+    '<div class="nota-box"><strong>Orario di check-in a Camping Solitudo (12 agosto).</strong> Non è indicato nella conferma. Se ne occupa Laura, al numero +385 20 448 686.</div>' +
+    '<div class="nota-box"><strong>Scarico in piazzola a Camping Solitudo.</strong> La piazzola è Standard: da chiedere se include lo scarico. Se ne occupa Laura.</div>';
+
+  html += '<p class="pie">Camperizziamoci le ferie! · Croazia 10 – 18 agosto 2026<br>' +
+    'App di bordo per Marco, Laura, Livia e Stefano.<br>' +
+    'Le informazioni vengono dalle prenotazioni confermate e dai documenti di viaggio.</p>';
+  return html;
+}
+
+/* ------------------------------------------------------------------
+   NAVIGAZIONE E ROUTER
+   ------------------------------------------------------------------ */
+const VOCI_NAV = [
+  { v:'home', nome:'Home', ico:I.home, gruppo:['home'] },
+  { v:'itinerario', nome:'Itinerario', ico:I.mappa, gruppo:['itinerario','giorno'] },
+  { v:'campeggi', nome:'Campeggi', ico:I.tenda, gruppo:['campeggi'] },
+  { v:'checklist', nome:'Checklist', ico:I.spunta, gruppo:['checklist'] },
+  { v:'info', nome:'Info', ico:I.info, gruppo:['info','tour','orari','contatti'] }
+];
+
+let vistaCorrente = 'home';
+let codGiorno = null;
+
+function disegnaNav(){
+  document.getElementById('nav').innerHTML = VOCI_NAV.map(n => {
+    const attivo = n.gruppo.includes(vistaCorrente) ? ' attivo' : '';
+    return '<button class="' + attivo.trim() + '" data-vai="' + n.v + '"' +
+      (attivo ? ' aria-current="page"' : '') + '>' +
+      '<span class="bolla">' + n.ico + '</span>' + n.nome + '</button>';
+  }).join('');
+}
+
+function vai(v, cod){
+  vistaCorrente = v;
+  if (cod) codGiorno = cod;
+  const cont = document.getElementById('vista');
+  let html = '';
+  switch (v) {
+    case 'home': html = vistaHome(); break;
+    case 'itinerario': html = vistaItinerario(); break;
+    case 'giorno': html = vistaGiorno(codGiorno); break;
+    case 'campeggi': html = vistaCampeggi(); break;
+    case 'tour': html = vistaTour(); break;
+    case 'checklist': html = vistaChecklist(); break;
+    case 'orari': html = vistaOrari(); break;
+    case 'contatti': html = vistaContatti(); break;
+    case 'info': html = vistaInfo(); break;
+    default: html = vistaHome();
+  }
+  cont.innerHTML = html;
+  disegnaNav();
+  window.scrollTo(0, 0);
+  cont.focus({preventScroll:true});
+}
+
+/* ------------------------------------------------------------------
+   EVENTI
+   ------------------------------------------------------------------ */
+document.addEventListener('click', e => {
+  const nav = e.target.closest('[data-vai]');
+  if (nav) { vai(nav.dataset.vai, nav.dataset.cod); return; }
+
+  const piega = e.target.closest('[data-piega]');
+  if (piega) {
+    const ci = piega.dataset.piega;
+    aperte[ci] = !aperte[ci];
+    vai('checklist');
+    return;
+  }
+
+  const spunta = e.target.closest('[data-spunta]');
+  if (spunta) {
+    const id = spunta.dataset.spunta;
+    const stato = Memoria.leggi();
+    stato[id] = !stato[id];
+    Memoria.scrivi(stato);
+    const sezione = spunta.closest('.categoria');
+    const ci = sezione.dataset.cat;
+    spunta.classList.toggle('fatta', !!stato[id]);
+    spunta.setAttribute('aria-pressed', stato[id] ? 'true' : 'false');
+    const voci = CHECKLIST[ci].voci.filter(x => typeof x === 'string').length;
+    const fatte = sezione.querySelectorAll('.voce.fatta').length;
+    sezione.querySelector('.conta').textContent = fatte + '/' + voci;
+    sezione.querySelector('.avanzamento i').style.width = (voci ? Math.round(fatte/voci*100) : 0) + '%';
+    return;
+  }
+
+  if (e.target.closest('#azzera')) {
+    if (window.confirm('Vuoi togliere tutte le spunte della checklist?')) {
+      Memoria.azzera();
+      vai('checklist');
+    }
+  }
+});
+
+/* ------------------------------------------------------------------
+   AVVIO
+   ------------------------------------------------------------------ */
+aggiornaSaluto();
+vai('home');
+setInterval(aggiornaSaluto, 60000);
+</script>
+</body>
+</html>
