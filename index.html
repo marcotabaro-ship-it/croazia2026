@@ -371,12 +371,16 @@ const GIORNI = [
     ]},
   { cod:'G1', data:'2026-08-10', gg:'Lun', dm:'10/08',
     tratta:'Mira (VE) → Pag / Avalona', notte:'Camping Avalona, Pag', km:'~530 km',
-    partenza:'~10:30–11:00', arrivo:'~18:00–19:30', critica:false, fatica:'impegnativo',
+    partenza:'~14:00–14:30', arrivo:'~21:00–22:30', critica:true, fatica:'critico',
+    notaSaluto:'Ritiro del camper alle 13:00 a Mira (VE)',
+    avviso:'Roadsurfer ha spostato il ritiro dalle 10:00 alle 13:00 per problemi tecnici. Si arriva a Pag in serata: il Camping Avalona va avvisato dell\u2019orario di arrivo.',
     dettaglio:[
-      "Mattina: Marco parte per Mira (VE) e ritira il camper alle 10:00. Il personale mostrerà il funzionamento del veicolo.",
+      "Marco parte per Mira (VE) e ritira il camper alle 13:00. Il personale mostrerà il funzionamento del veicolo.",
       "Nel frattempo Laura, Livia e Stefano caricano le ultime cose e pranzano a casa.",
-      "Da Mira a Pag sono circa 530 km: autostrada A4, Trieste, Rijeka e poi la A1 croata fino a Zadar. Attraverseremo il Ponte di Pag — panorama bellissimo.",
-      "Arrivo al Camping Avalona: prima notte in camper!"
+      "Partenza effettiva da Mira tra le 14:00 e le 14:30.",
+      "Da Mira a Pag sono circa 530 km: autostrada A4, Trieste, Rijeka e poi la A1 croata fino a Zadar. Attraverseremo il Ponte di Pag.",
+      "Cena in viaggio, durante una sosta in autogrill o in area di servizio: non si cucina in camper stasera.",
+      "Arrivo al Camping Avalona in serata, tra le 21:00 e le 22:30. Si fa solo la sistemazione per la notte: piazzola, letti, dormire. Tutto il resto domani, con calma."
     ]},
   { cod:'G2', data:'2026-08-11', gg:'Mar', dm:'11/08',
     tratta:'Pag — giornata di mare', notte:'Camping Avalona, Pag', km:null,
@@ -468,6 +472,7 @@ const CAMPEGGI = [
     servizi:['Parco acquatico','Piscina esterna di acqua dolce','Lettini e ombrelloni in spiaggia','Elettricità, acqua e scarico in piazzola'],
     tel:[{et:'Reception', n:'+385 23 204 333'},{et:'Prenotazioni', n:'+385 52 858 690'}],
     email:'camping@aminess.com',
+    avviso:"Arrivo serale previsto, tra le 21:00 e le 22:30. Il campeggio è stato avvisato: seguire le istruzioni ricevute per il check-in tardivo. Se l\u2019arrivo slitta ancora, richiamare subito il +385 52 858 690.",
     nota:"Si arriva dal Ponte di Pag: gratuito, senza restrizioni per i camper. L'ultimo tratto è su strada provinciale asfaltata." },
 
   { nome:'Camping Solitudo', stelle:'★★★ (Valamar)',
@@ -528,8 +533,10 @@ const TOUR = {
 };
 
 const ORARI = [
-  { data:'2026-08-10T10:00', gg:'Lun 10/08', ora:'10:00', cosa:'Ritiro del camper a Mira (VE)',
-    nota:'Via Ghebba 109, 30034 Mira (VE). Briefing e verifica del veicolo con il personale.' },
+  { data:'2026-08-10T13:00', gg:'Lun 10/08', ora:'13:00', cosa:'Ritiro del camper — Via Ghebba 109, Mira (VE)',
+    nota:'Orario spostato da Roadsurfer dalle 10:00 alle 13:00. Briefing e verifica del veicolo con il personale.' },
+  { data:'2026-08-10T13:30', gg:'Lun 10/08', ora:'13:30', cosa:'Avvisare il Camping Avalona dell\u2019orario di arrivo',
+    nota:'L\u2019arrivo è previsto in serata. Se slitta oltre l\u2019orario comunicato, richiamare: +385 52 858 690.' },
   { data:'2026-08-12T07:00', gg:'Mer 12/08', ora:'07:00', cosa:'Partenza da Pag verso Dubrovnik',
     nota:'Circa 540 km. Partire più tardi significa arrivare a notte fonda.' },
   { data:'2026-08-16T07:30', gg:'Dom 16/08', ora:'07:30', cosa:'Partenza da Dubrovnik verso Plitvice',
@@ -694,7 +701,8 @@ function aggiornaSaluto(){
     sub.textContent = 'Croazia in camper · 10 – 18 agosto 2026';
   } else if (g) {
     h1.textContent = 'Oggi: ' + g.cod + ' — ' + g.tratta;
-    sub.textContent = g.gg + ' ' + g.dm + ' · si dorme: ' + g.notte;
+    sub.textContent = (g.notaSaluto ? g.notaSaluto + ' · ' : g.gg + ' ' + g.dm + ' · ')
+      + 'si dorme: ' + g.notte;
   } else if (oggiISO() > RIENTRO) {
     h1.textContent = 'Bentornati!';
     sub.textContent = 'Croazia in camper · 10 – 18 agosto 2026';
@@ -761,7 +769,7 @@ function vistaHome(){
   html += '<div class="scheda" style="margin-top:18px"><h3>Il nostro camper</h3>' +
     '<p class="sub">Roadsurfer Family Finca — VW Grand California 600</p>' +
     '<dl><div class="riga"><dt>In viaggio</dt><dd>Marco, Laura, Livia e Stefano</dd></div>' +
-    '<div class="riga"><dt>Ritiro</dt><dd>Lun 10/08, ore 10:00 — Mira (VE)</dd></div>' +
+    '<div class="riga"><dt>Ritiro</dt><dd>Lun 10/08, ore 13:00 — Mira (VE)</dd></div>' +
     '<div class="riga"><dt>Riconsegna</dt><dd>Mar 18/08, entro le 16:00 — Mira (VE)</dd></div>' +
     '<div class="riga"><dt>Notti in camper</dt><dd>8, in 4 campeggi</dd></div></dl></div>';
 
@@ -846,6 +854,7 @@ function vistaCampeggi(){
       '</dl>' +
       '<div style="margin-top:12px"><div class="titolo-sezione" style="margin:0 0 8px">Servizi</div>' +
       '<ul class="elenco-narrativo">' + c.servizi.map(s => '<li>' + esc(s) + '</li>').join('') + '</ul></div>' +
+      (c.avviso ? '<div class="allerta-box"><strong>Attenzione all\u2019arrivo.</strong> ' + esc(c.avviso) + '</div>' : '') +
       (c.nota ? '<div class="' + (c.notaRossa ? 'allerta-box' : 'nota-box') + '">' + esc(c.nota) + '</div>' : '') +
       '<div class="azioni">' +
       '<a class="btn btn-pieno" href="' + mappaHref(c.indirizzo) + '" target="_blank" rel="noopener">' + I.bussola + ' Naviga</a>' +
